@@ -22,13 +22,18 @@ class PlateUAViewModel
     {
         self.model = model
         
-        if let value : String = model.value
+//        if let value : String = model.value
+//        {
+//            self.body = Variable(value)
+//        }
+//        else
+//        {
+//            self.body = nil
+//        }
+        
+        if let norm = model.properties[UA.CountryPlate.Properties.kNormal.rawValue] as? String
         {
-            self.body = Variable(value)
-        }
-        else
-        {
-            self.body = nil
+            self.body = Variable(norm)
         }
     }
 }

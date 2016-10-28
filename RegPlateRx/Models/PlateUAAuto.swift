@@ -24,18 +24,18 @@ class PlateUAAuto04 : UA.CountryPlate
             "|[\(UA.CountryPlate.prefixSeries)]\(unknownLetter)" +
             "|\(unknownLetter)[\(UA.CountryPlate.allSymbols)]" +
             "|\(unknownLetter)\(unknownLetter))" +
-            "([\\d\(unknownNumber)]{4})" /* +
+            "([\\d\(unknownNumber)]{4})"  +
             "(\(UA.CountryPlate.tails)" +
             "|[\(UA.CountryPlate.allSymbols)]\(unknownLetter)" +
             "|\(unknownLetter)[\(UA.CountryPlate.allSymbols)]" +
         "|\(unknownLetter)\(unknownLetter))"
-*/
+
         return result
     }
 
     override func parse(_ input: String) -> Bool
     {
-        let result = true
+        let result = super.parse(input)
         
         properties[UA.CountryPlate.Properties.kNormal.rawValue] = type(of :self).normalizedInput(input) as AnyObject?
         properties[UA.CountryPlate.Properties.kPlateType.rawValue] = UA.PlateType.Auto_04 as AnyObject?
