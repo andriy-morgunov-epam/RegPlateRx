@@ -8,29 +8,53 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="7ae-89-C10" customClass="PlateUACell" customModule="RegPlateRx" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-            <autoresizingMask key="autoresizingMask"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="144" id="7ae-89-C10" customClass="PlateUACell" customModule="RegPlateRx" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="670" height="144"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7ae-89-C10" id="9rC-A4-Req">
-                <frame key="frameInset" width="375" height="43"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <frame key="frameInset" minX="0.0%" minY="0.0%" width="670" height="144"/>
+                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59n-hI-6xC">
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pOg-tk-N5U">
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.1.04" translatesAutoresizingMaskIntoConstraints="NO" id="wSK-r5-mDA">
+                                <color key="backgroundColor" red="0.41568627450000001" green="0.58823529409999997" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AA1234BI" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="59n-hI-6xC">
+                                <color key="backgroundColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="59n-hI-6xC" firstAttribute="centerY" secondItem="pOg-tk-N5U" secondAttribute="centerY" id="4NH-mb-sft"/>
+                            <constraint firstItem="wSK-r5-mDA" firstAttribute="leading" secondItem="pOg-tk-N5U" secondAttribute="leading" id="6Fy-Td-Waz"/>
+                            <constraint firstAttribute="bottom" secondItem="wSK-r5-mDA" secondAttribute="bottom" id="6Hv-hd-SUQ"/>
+                            <constraint firstAttribute="height" constant="144" id="7Rg-Ad-bKa"/>
+                            <constraint firstItem="wSK-r5-mDA" firstAttribute="top" secondItem="pOg-tk-N5U" secondAttribute="top" id="8G6-my-h9A"/>
+                            <constraint firstAttribute="trailing" secondItem="59n-hI-6xC" secondAttribute="trailing" constant="42" id="8OV-ME-Ljr"/>
+                            <constraint firstItem="59n-hI-6xC" firstAttribute="height" secondItem="pOg-tk-N5U" secondAttribute="height" id="WEj-8v-agd"/>
+                            <constraint firstAttribute="width" constant="669" id="ZZa-1e-a7A"/>
+                            <constraint firstAttribute="trailing" secondItem="wSK-r5-mDA" secondAttribute="trailing" id="jOd-hq-a5X"/>
+                            <constraint firstItem="59n-hI-6xC" firstAttribute="leading" secondItem="pOg-tk-N5U" secondAttribute="leading" constant="63" id="kQL-FC-Ysj"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="59n-hI-6xC" secondAttribute="bottom" constant="11" id="Cus-fH-3GX"/>
-                    <constraint firstItem="59n-hI-6xC" firstAttribute="top" secondItem="9rC-A4-Req" secondAttribute="top" constant="11" id="Xq7-fo-Toi"/>
-                    <constraint firstItem="59n-hI-6xC" firstAttribute="leading" secondItem="9rC-A4-Req" secondAttribute="leading" constant="20" id="e9q-T4-d7n"/>
-                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="59n-hI-6xC" secondAttribute="trailing" constant="20" id="thb-nQ-1LU"/>
+                    <constraint firstItem="pOg-tk-N5U" firstAttribute="top" secondItem="9rC-A4-Req" secondAttribute="top" id="V3E-k2-wQ0"/>
+                    <constraint firstAttribute="bottom" secondItem="pOg-tk-N5U" secondAttribute="bottom" id="bhE-Ed-yAg"/>
+                    <constraint firstItem="pOg-tk-N5U" firstAttribute="leading" secondItem="9rC-A4-Req" secondAttribute="leading" id="wdx-3I-9Kg"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="bodyLabel" destination="59n-hI-6xC" id="UlX-sd-67p"/>
             </connections>
+            <point key="canvasLocation" x="174" y="102"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="1.1.04" width="669" height="144"/>
+    </resources>
 </document>

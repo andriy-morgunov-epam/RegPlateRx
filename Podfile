@@ -5,6 +5,7 @@ target 'RegPlateRx' do
     pod 'RxSwift', ‘~> 3.0.0'
     #'."beta.1'
     pod 'RxCocoa', ‘~> 3.0.0'
+    #pod 'ObservableArray-RxSwift'
     #, '~> 3.0.0.beta.1'
   #pod 'AFNetworking', '~> 2.6'
   #pod 'ORStackView', '~> 3.0'
@@ -14,6 +15,7 @@ end
 target 'RegPlateRxTests' do
     pod 'RxSwift', ‘~> 3.0.0'
     pod 'RxCocoa', ‘~> 3.0.0'
+    #pod 'ObservableArray-RxSwift'
 end
 
 

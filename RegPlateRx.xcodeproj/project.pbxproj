@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8525D70A1DC79A590094B5CC /* PlateUAAutoTaxi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8525D7091DC79A590094B5CC /* PlateUAAutoTaxi.swift */; };
+		8525D70C1DC79B520094B5CC /* PlateUAAutoTemporary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8525D70B1DC79B520094B5CC /* PlateUAAutoTemporary.swift */; };
+		8525D70E1DC7A8D10094B5CC /* PlateUAAutoTemporaryDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8525D70D1DC7A8D10094B5CC /* PlateUAAutoTemporaryDealer.swift */; };
+		8525D7101DC7AB0E0094B5CC /* PlateUAMoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8525D70F1DC7AB0E0094B5CC /* PlateUAMoto.swift */; };
+		8525D7121DC7AB430094B5CC /* PlateUAMotoTemporary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8525D7111DC7AB430094B5CC /* PlateUAMotoTemporary.swift */; };
+		8525D7141DC7ACD00094B5CC /* PlateUAMotoTemporaryDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8525D7131DC7ACD00094B5CC /* PlateUAMotoTemporaryDealer.swift */; };
 		859566561DBA1228009E96C9 /* PlatesUAViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859566551DBA1228009E96C9 /* PlatesUAViewModel.swift */; };
 		859566591DBA1E09009E96C9 /* PlateUAViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859566581DBA1E09009E96C9 /* PlateUAViewModel.swift */; };
 		8595665B1DBF4519009E96C9 /* PlateUACell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8595665A1DBF4519009E96C9 /* PlateUACell.xib */; };
@@ -18,6 +24,7 @@
 		859566711DC224D6009E96C9 /* PlateTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859566701DC224D6009E96C9 /* PlateTemplate.swift */; };
 		859566741DC24362009E96C9 /* PlateUAServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859566731DC24362009E96C9 /* PlateUAServiceTests.swift */; };
 		859566781DC24965009E96C9 /* PlateUAAutoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859566771DC24965009E96C9 /* PlateUAAutoTests.swift */; };
+		8595667D1DC7393F009E96C9 /* ObservableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8595667C1DC7393F009E96C9 /* ObservableArray.swift */; };
 		85C3D5B41DB8B77D00EC37ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C3D5B31DB8B77D00EC37ED /* AppDelegate.swift */; };
 		85C3D5B61DB8B77D00EC37ED /* PlatesUAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C3D5B51DB8B77D00EC37ED /* PlatesUAViewController.swift */; };
 		85C3D5B91DB8B77D00EC37ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85C3D5B71DB8B77D00EC37ED /* Main.storyboard */; };
@@ -60,6 +67,12 @@
 		0A9DB38DAE1BA394C94BF710 /* Pods_RegPlateRxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RegPlateRxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F78BEC238FA37B48434B56B /* Pods-RegPlateRxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RegPlateRxTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RegPlateRxTests/Pods-RegPlateRxTests.debug.xcconfig"; sourceTree = "<group>"; };
 		547FBABFBD3D9933D255B117 /* Pods-RegPlateRx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RegPlateRx.release.xcconfig"; path = "Pods/Target Support Files/Pods-RegPlateRx/Pods-RegPlateRx.release.xcconfig"; sourceTree = "<group>"; };
+		8525D7091DC79A590094B5CC /* PlateUAAutoTaxi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlateUAAutoTaxi.swift; path = Models/PlateUAAutoTaxi.swift; sourceTree = "<group>"; };
+		8525D70B1DC79B520094B5CC /* PlateUAAutoTemporary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlateUAAutoTemporary.swift; path = Models/PlateUAAutoTemporary.swift; sourceTree = "<group>"; };
+		8525D70D1DC7A8D10094B5CC /* PlateUAAutoTemporaryDealer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlateUAAutoTemporaryDealer.swift; path = Models/PlateUAAutoTemporaryDealer.swift; sourceTree = "<group>"; };
+		8525D70F1DC7AB0E0094B5CC /* PlateUAMoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlateUAMoto.swift; path = Models/PlateUAMoto.swift; sourceTree = "<group>"; };
+		8525D7111DC7AB430094B5CC /* PlateUAMotoTemporary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlateUAMotoTemporary.swift; path = Models/PlateUAMotoTemporary.swift; sourceTree = "<group>"; };
+		8525D7131DC7ACD00094B5CC /* PlateUAMotoTemporaryDealer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlateUAMotoTemporaryDealer.swift; path = Models/PlateUAMotoTemporaryDealer.swift; sourceTree = "<group>"; };
 		859566551DBA1228009E96C9 /* PlatesUAViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlatesUAViewModel.swift; path = ViewModels/PlatesUAViewModel.swift; sourceTree = "<group>"; };
 		859566581DBA1E09009E96C9 /* PlateUAViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlateUAViewModel.swift; path = ViewModels/PlateUAViewModel.swift; sourceTree = "<group>"; };
 		8595665A1DBF4519009E96C9 /* PlateUACell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlateUACell.xib; path = Views/PlateUACell.xib; sourceTree = "<group>"; };
@@ -71,6 +84,7 @@
 		859566701DC224D6009E96C9 /* PlateTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlateTemplate.swift; path = Models/PlateTemplate.swift; sourceTree = "<group>"; };
 		859566731DC24362009E96C9 /* PlateUAServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlateUAServiceTests.swift; path = Services/PlateUAServiceTests.swift; sourceTree = "<group>"; };
 		859566771DC24965009E96C9 /* PlateUAAutoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlateUAAutoTests.swift; path = Models/PlateUAAutoTests.swift; sourceTree = "<group>"; };
+		8595667C1DC7393F009E96C9 /* ObservableArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObservableArray.swift; path = Libraries/ObservableArray.swift; sourceTree = "<group>"; };
 		85C3D5B01DB8B77D00EC37ED /* RegPlateRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RegPlateRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85C3D5B31DB8B77D00EC37ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85C3D5B51DB8B77D00EC37ED /* PlatesUAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatesUAViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +176,12 @@
 			children = (
 				85C3D5F01DB8FFDB00EC37ED /* PlateUA.swift */,
 				8595666E1DC223CD009E96C9 /* PlateUAAuto.swift */,
+				8525D7091DC79A590094B5CC /* PlateUAAutoTaxi.swift */,
+				8525D70B1DC79B520094B5CC /* PlateUAAutoTemporary.swift */,
+				8525D70D1DC7A8D10094B5CC /* PlateUAAutoTemporaryDealer.swift */,
+				8525D70F1DC7AB0E0094B5CC /* PlateUAMoto.swift */,
+				8525D7111DC7AB430094B5CC /* PlateUAMotoTemporary.swift */,
+				8525D7131DC7ACD00094B5CC /* PlateUAMotoTemporaryDealer.swift */,
 			);
 			name = UA;
 			sourceTree = "<group>";
@@ -210,6 +230,14 @@
 			name = UA;
 			sourceTree = "<group>";
 		};
+		8595667B1DC73934009E96C9 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				8595667C1DC7393F009E96C9 /* ObservableArray.swift */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
 		85C3D5A71DB8B77D00EC37ED = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +263,7 @@
 		85C3D5B21DB8B77D00EC37ED /* RegPlateRx */ = {
 			isa = PBXGroup;
 			children = (
+				8595667B1DC73934009E96C9 /* Libraries */,
 				859566671DC1E39C009E96C9 /* Services */,
 				859566601DC0C9A2009E96C9 /* Utils */,
 				859566541DBA11CA009E96C9 /* Views */,
@@ -557,21 +586,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				859566711DC224D6009E96C9 /* PlateTemplate.swift in Sources */,
+				8525D70A1DC79A590094B5CC /* PlateUAAutoTaxi.swift in Sources */,
+				8525D7101DC7AB0E0094B5CC /* PlateUAMoto.swift in Sources */,
 				859566691DC1E619009E96C9 /* RegExp.swift in Sources */,
 				859566661DC1E398009E96C9 /* PlateUAService.swift in Sources */,
+				8525D7121DC7AB430094B5CC /* PlateUAMotoTemporary.swift in Sources */,
 				8595666F1DC223CD009E96C9 /* PlateUAAuto.swift in Sources */,
 				85C3D5ED1DB8CC6B00EC37ED /* Plates.swift in Sources */,
 				85C3D5E51DB8BAB400EC37ED /* Plate.swift in Sources */,
 				859566561DBA1228009E96C9 /* PlatesUAViewModel.swift in Sources */,
 				8595665D1DBF459D009E96C9 /* PlateUACell.swift in Sources */,
+				8525D70C1DC79B520094B5CC /* PlateUAAutoTemporary.swift in Sources */,
 				85C3D5F61DB915FA00EC37ED /* StubPlates.swift in Sources */,
 				859566641DC0CDFD009E96C9 /* Operators.swift in Sources */,
 				85C3D5F11DB8FFDB00EC37ED /* PlateUA.swift in Sources */,
 				859566591DBA1E09009E96C9 /* PlateUAViewModel.swift in Sources */,
 				85C3D5EB1DB8CC4500EC37ED /* Entity.swift in Sources */,
 				85C3D5B61DB8B77D00EC37ED /* PlatesUAViewController.swift in Sources */,
+				8525D70E1DC7A8D10094B5CC /* PlateUAAutoTemporaryDealer.swift in Sources */,
+				8595667D1DC7393F009E96C9 /* ObservableArray.swift in Sources */,
 				85C3D5BC1DB8B77D00EC37ED /* RegPlateRx.xcdatamodeld in Sources */,
 				85C3D5B41DB8B77D00EC37ED /* AppDelegate.swift in Sources */,
+				8525D7141DC7ACD00094B5CC /* PlateUAMotoTemporaryDealer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -729,6 +765,7 @@
 			baseConfigurationReference = 056F66D8221128AD467E2DC6 /* Pods-RegPlateRx.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 27MM3X342P;
 				INFOPLIST_FILE = RegPlateRx/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -743,6 +780,7 @@
 			baseConfigurationReference = 547FBABFBD3D9933D255B117 /* Pods-RegPlateRx.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 27MM3X342P;
 				INFOPLIST_FILE = RegPlateRx/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

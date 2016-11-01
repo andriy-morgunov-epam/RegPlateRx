@@ -13,7 +13,7 @@ struct PlateUASerice// : Plates
     static func plates (_ input : String) -> [UA.CountryPlate]
     {
         var result : [UA.CountryPlate] = []
-
+        
         // 1.1 (2004)
         var plate = PlateUAAuto04(input)
         if plate.isValid()
@@ -27,55 +27,56 @@ struct PlateUASerice// : Plates
         {
             result.append(plate)
         }
-/*
+
         // 1.2 (2004)
-        plate = PlateUAAutoTaxi04(input: input)
-        if let value = plate.value
+        plate = PlateUAAutoTaxi04(input)
+        if plate.isValid()
         {
             result.append(plate)
         }
         
         // 1.2 (2015)
-        plate = PlateUAAutoTaxi15(input: input)
-        if let value = plate.value
+        plate = PlateUAAutoTaxi15(input)
+        if plate.isValid()
         {
             result.append(plate)
         }
-        
+
         // 2.1 (2004)
-        plate = PlateUAAutoTemporary04(input: input)
-        if let value = plate.value
+        plate = PlateUAAutoTemporary04(input)
+        if plate.isValid()
         {
             result.append(plate)
         }
         
         // 2.1 (2015)
-        plate = PlateUAAutoTemporary15(input: input)
-        if let value = plate.value
+        plate = PlateUAAutoTemporary15(input)
+        if plate.isValid()
         {
             result.append(plate)
         }
-        
+
         // 2.2 (2004)
-        plate = PlateUAAutoTemporaryDealer04(input: input)
-        if let value = plate.value
+        plate = PlateUAAutoTemporaryDealer04(input)
+        if plate.isValid()
         {
             result.append(plate)
         }
         
         // 2.2 (2015)
-        plate = PlateUAAutoTemporaryDealer15(input: input)
-        if let value = plate.value
+        plate = PlateUAAutoTemporaryDealer15(input)
+        if plate.isValid()
+        {
+            result.append(plate)
+        }
+
+        // 3.1 (2004)
+        plate = PlateUAMoto04(input)
+        if plate.isValid()
         {
             result.append(plate)
         }
         
-        // 3.1 (2004)
-        plate = PlateUAMoto04(input: input)
-        if let value = plate.value
-        {
-            result.append(plate)
-        }
         /*
          // 3.1 (2015)
          plate = PlateUAMoto15(input: input)
@@ -83,8 +84,8 @@ struct PlateUASerice// : Plates
          {
          result.append(plate)
          }
-         */
-*/
+       */
+
         return result
     }
     

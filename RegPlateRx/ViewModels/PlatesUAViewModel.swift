@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+//import ObservableArray_RxSwift
 
 class PlatesUAViewModel
 {
@@ -15,8 +16,8 @@ class PlatesUAViewModel
     
     let model : UA.CountryPlates
     
-    var search : Variable<String?> = Variable("AA")
-    var items : Observable<[PlateUAViewModel]> = Observable<[PlateUAViewModel]>.empty()
+    var search : Variable<String?> = Variable("")
+    var items : ObservableArray<PlateUAViewModel> = ObservableArray<PlateUAViewModel>()
     
     init (_ model : UA.CountryPlates)
     {
@@ -36,13 +37,17 @@ class PlatesUAViewModel
     {
         if let items = self.model.provider?.getWithFilter(filter: filter)
         {
-            var vms : [PlateUAViewModel] = []
+//            var vms : [PlateUAViewModel] = []
+            
+            self.items.removeAll()
             
             for item in items
             {
-                vms.append(createViewModelWithModel(model: item))
+                self.items.append(createViewModelWithModel(model: item))
+//                vms.append(createViewModelWithModel(model: item))
+//                    = Observable.just(vms)
             }
-            self.items = Observable.just(vms)
+    //            self.items.append(vms)
         }
     }
     

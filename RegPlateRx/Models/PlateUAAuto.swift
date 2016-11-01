@@ -17,8 +17,6 @@ class PlateUAAuto04 : UA.CountryPlate
         let unknownLetter = "\\" + self.unknownLetterChar()
         let unknownNumber = "\\" + self.unknownNumChar()
         
-//        let result = "AA|BB|[\(UA.CountryPlate.prefixSeries)]\(unknownLetter)"
-        
         let result =
             "(\(UA.CountryPlate.series)" +
             "|[\(UA.CountryPlate.prefixSeries)]\(unknownLetter)" +

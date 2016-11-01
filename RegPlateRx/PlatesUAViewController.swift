@@ -25,10 +25,9 @@ class PlatesUAViewController: UIViewController
         super.viewDidLoad()
         
         tableView.register(UINib(nibName:"PlateUACell", bundle: nil), forCellReuseIdentifier: "PlateUACell")
-        
-        let items : Observable<[PlateUAViewModel]> = viewModel.items
-        
-        items.bindTo(tableView.rx.items(cellIdentifier: "PlateUACell", cellType: PlateUACell.self)) {
+
+        viewModel.items.rx_elements()
+            .bindTo(tableView.rx.items(cellIdentifier: "PlateUACell", cellType: PlateUACell.self)) {
             
             (index, plateViewModel: PlateUAViewModel, cell) in
             
