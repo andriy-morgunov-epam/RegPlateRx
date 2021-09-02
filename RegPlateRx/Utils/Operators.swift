@@ -9,7 +9,7 @@
 import Foundation
 #if !RX_NO_MODULE
 import RxSwift
-import RxCocoa
+//import RxCocoa
 #endif
 
 import UIKit

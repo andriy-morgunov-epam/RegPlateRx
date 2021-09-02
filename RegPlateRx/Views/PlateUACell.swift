@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 import RxSwift
-import RxCocoa
+//import RxCocoa
 
 class PlateUACell : UITableViewCell
 {
-    var disposeBag = DisposeBag()
+    private var disposeBag = DisposeBag()
     
     @IBOutlet weak var bodyLabel : UILabel!
     
@@ -25,7 +25,14 @@ class PlateUACell : UITableViewCell
                 return
             }
             
-            plateVM.body?.asObservable().bindTo(bodyLabel.rx.text).addDisposableTo(self.disposeBag)
+            plateVM.body?
+                .subscribe(
+                    onNext: {[weak self] body in
+                        self?.bodyLabel.text = body
+                    }
+                )
+                .disposed(by: self.disposeBag)
+            
         }
     }
     

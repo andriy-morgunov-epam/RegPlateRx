@@ -16,7 +16,7 @@ class PlatesUAViewModel
     
     let model : UA.CountryPlates
     
-    var search : Variable<String?> = Variable("")
+    var search : BehaviorSubject<String?> = BehaviorSubject(value: "")
     var items : ObservableArray<PlateUAViewModel> = ObservableArray<PlateUAViewModel>()
     
     init (_ model : UA.CountryPlates)
@@ -30,7 +30,7 @@ class PlatesUAViewModel
             
             self?.refresh(text ?? "")
             
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
     }
     
     func refresh(_ filter : String) -> Void

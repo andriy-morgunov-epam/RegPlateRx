@@ -46,7 +46,7 @@ class PlateUATests: XCTestCase
         
         class StubCountryPlate : UA.CountryPlate
         {
-            override private func parse(_ input: String) -> Bool
+            override func parse(_ input: String) -> Bool
             {
                 XCTAssert(true, "Parse func shouldn't be called during initialization of CountryPlate")
                 

@@ -8,13 +8,13 @@
 
 import Foundation
 import RxSwift
-import RxCocoa
+//import RxCocoa
 
 class PlateUAViewModel
 {
-    var prefix : Variable<String>?
-    var body : Variable<String>?
-    var postfix : Variable<String>?
+    var prefix : BehaviorSubject<String>?
+    var body : BehaviorSubject<String>?
+    var postfix : BehaviorSubject<String>?
     
     let model : UA.CountryPlate
     
@@ -22,18 +22,9 @@ class PlateUAViewModel
     {
         self.model = model
         
-//        if let value : String = model.value
-//        {
-//            self.body = Variable(value)
-//        }
-//        else
-//        {
-//            self.body = nil
-//        }
-        
         if let norm = model.properties[UA.CountryPlate.Properties.kNormal.rawValue] as? String
         {
-            self.body = Variable(norm)
+            self.body = BehaviorSubject(value: norm)
         }
     }
 }

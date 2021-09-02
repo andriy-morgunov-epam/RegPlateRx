@@ -384,7 +384,7 @@ struct UA
         {
             var result = input
             let limit = charLimit()
-            let start = input.characters.count
+            let start = input.count
             
             if start < limit
             {
@@ -525,7 +525,7 @@ extension UA.CountryPlate : CountryPlateProtocol
     {
         var result : UA.PlateRegion? = nil;
         
-        if (input.characters.count > 1)
+        if (input.count > 1)
         {
             let index : String.Index =  input.index(input.startIndex, offsetBy: 2)
             

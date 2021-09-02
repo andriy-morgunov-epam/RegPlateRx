@@ -28,7 +28,7 @@ class RegExp
     {
         if let exp = self.internalExpression
         {
-            let matches = exp.matches(in: input, options: [], range:NSMakeRange(0, input.characters.count))
+            let matches = exp.matches(in: input, options: [], range:NSMakeRange(0, input.count))
             
             return matches.count > 0
         }
