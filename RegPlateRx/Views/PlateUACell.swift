@@ -43,3 +43,4 @@ class PlateUACell : UITableViewCell
         disposeBag = DisposeBag()
     }
 }
+

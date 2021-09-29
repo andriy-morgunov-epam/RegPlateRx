@@ -8,38 +8,28 @@
 
 import Foundation
 
-enum PlateTemplatableCharType : Int
-{
+enum PlateTemplatableCharType : Int {
     case num = 0, letter
 }
 
-protocol PlateTemplatable
-{
+protocol PlateTemplatable {
     static func charLimit() -> Int
     static func normalizedInput(_ value : String) -> String
     
-    static func unknownNumChar()    -> String
-    static func unknownLetterChar() -> String
+    static var unknownNumChar: String { get }
+    static var unknownLetterChar: String { get }
     
     static func charTypeForCharIndex(_ index : Int) -> PlateTemplatableCharType?
 }
 
-extension PlateTemplatable
-{
-    static func unknownNumChar() -> String
-    {
+extension PlateTemplatable {
+    static var unknownNumChar: String {
         return "#"
     }
     
-    static func unknownLetterChar() -> String
-    {
+    static var unknownLetterChar: String {
         return "*"
     }
 }
 
-
-//protocol Plates
-//{
-//    static func plates (_ input : String) -> [PlateProtocol]
-//}
 

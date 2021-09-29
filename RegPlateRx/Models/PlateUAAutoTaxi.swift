@@ -10,12 +10,10 @@ import Foundation
 
 class PlateUAAutoTaxi04 : PlateUAAuto04
 {
-    override func parse(_ input: String) -> Bool
-    {
+    override func parse(_ input: String) -> Bool {
         let result = super.parse(input)
         
-        if result
-        {
+        if result {
             properties[UA.CountryPlate.Properties.kPlateType.rawValue] = UA.PlateType.Auto_Taxi_04 as AnyObject?
             properties[UA.CountryPlate.Properties.kMode.rawValue] = UA.PlateMode.taxi as AnyObject?
         }
@@ -24,14 +22,12 @@ class PlateUAAutoTaxi04 : PlateUAAuto04
     }
 }
 
-class PlateUAAutoTaxi15 : PlateUAAutoTaxi04
+final class PlateUAAutoTaxi15 : PlateUAAutoTaxi04
 {
-    override func parse(_ input: String) -> Bool
-    {
+    override func parse(_ input: String) -> Bool {
         let result = super.parse(input)
         
-        if result
-        {
+        if result {
             properties[UA.CountryPlate.Properties.kPlateType.rawValue] = UA.PlateType.Auto_Taxi_15 as AnyObject?
         }
         

@@ -10,64 +10,54 @@ import Foundation
 
 // Plate
 
-protocol PlateProtocol
-{
+protocol PlateProtocol {
+
     associatedtype PlateType
     var value : PlateType? { get set }
     
-    var properties : [String:AnyObject] { get set }
+    var properties : [String: AnyObject] { get set }
     
     func asString() -> String
 }
 
-class Plate<V> : PlateProtocol
-{
+class Plate<V> : PlateProtocol, Identifiable {
+
     var value : V?
     
-    var properties : [String:AnyObject] = [:]
+    var properties : [String: AnyObject] = [:]
     
-    init()
-    {
+    init() {
     }
-    
-    init(_ value : V)
-    {
+
+    init(_ value : V) {
         self.value = value
     }
 
-    func asString() -> String
-    {
+    func asString() -> String {
         var result = ""
         
-        if let val = self.value as? String
-        {
+        if let val = self.value as? String {
             result = val
         }
         return result
     }
 }
 
-class PlateFactory<V, T : PlateProtocol> : EntityCRUDProtocol
-{
-    static func create() -> T?
-    {
+class PlateFactory<V, T : PlateProtocol> : EntityCRUDProtocol {
+
+    static func create() -> T? {
         return Plate<V>() as? T
     }
     
-    static func create(value : V) -> T?
-    {
+    static func create(value : V) -> T? {
         return Plate<V>(value) as? T
     }
 }
 
-class PlateProvider<V, F, T : PlateProtocol> : EntityProvider
-{
-    func getWithFilter(filter : F) -> [T]
-    {
+class PlateProvider<V, F, T : PlateProtocol> : EntityProvider {
+    func getWithFilter(filter : F) -> [T] {
         return []
     }
     
     var crudInterface = PlateFactory<V, T>()
 }
-
-

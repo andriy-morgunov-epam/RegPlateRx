@@ -8,34 +8,29 @@
 
 import Foundation
 
-class PlateUAAutoTemporary04 : PlateUAAuto04
-{
-    override func parse(_ input: String) -> Bool
-    {
+class PlateUAAutoTemporary04 : PlateUAAuto04 {
+
+    override func parse(_ input: String) -> Bool {
         let result = super.parse(input)
         
-        if result
-        {
-            properties[UA.CountryPlate.Properties.kPlateType.rawValue] = UA.PlateType.Auto_Temporary_04 as AnyObject?
-        }
-        
-        if let suffix = self.suffix()
-        {
-            properties[UA.CountryPlate.Properties.kSuffix.rawValue] = suffix as AnyObject?
-        }
-        
-        if let prefix = self.prefix()
-        {
-            properties[UA.CountryPlate.Properties.kPrefix.rawValue] = prefix as AnyObject?
+        if result {
+            let parsedInput = type(of :self).normalizedInput(input)
+            let preIndex: String.Index = parsedInput.index(parsedInput.startIndex, offsetBy: 2)
+            let postIndex: String.Index = parsedInput.index(parsedInput.endIndex, offsetBy: -4)
+
+            self.properties[UA.CountryPlate.Properties.kMode.rawValue] = UA.PlateMode.temporary as AnyObject?
+            self.properties[UA.CountryPlate.Properties.kPlateType.rawValue] = UA.PlateType.Auto_Temporary_04 as AnyObject?
+            self.properties[UA.CountryPlate.Properties.kPrefix.rawValue] = String(parsedInput[..<preIndex]) as AnyObject?
+            self.properties[UA.CountryPlate.Properties.kBody.rawValue] = String(parsedInput[preIndex..<postIndex]) as AnyObject?
+            self.properties[UA.CountryPlate.Properties.kSuffix.rawValue] = String(parsedInput[postIndex...]) as AnyObject?
         }
 
         return result
     }
     
-    override class func regexp() -> String?
-    {
-        let unknownLetter = "\\" + self.unknownLetterChar()
-        let unknownNumber = "\\" + self.unknownNumChar()
+    override class func regexp() -> String? {
+        let unknownLetter = "\\" + Self.unknownLetterChar
+        let unknownNumber = "\\" + Self.unknownNumChar
         
         return
             "([\\d\(unknownNumber)]{2})" +
@@ -45,41 +40,12 @@ class PlateUAAutoTemporary04 : PlateUAAuto04
             "|\(unknownLetter)\(unknownLetter))" +
             "([\\d\(unknownNumber)]{4})"
     }
-    
-    func suffix() -> String?
-    {
-        var result : String? = properties[UA.CountryPlate.Properties.kNormal.rawValue] as? String
-        
-        if let full = result
-        {
-            let index : String.Index =  full.index(full.startIndex, offsetBy: 2) //advance(full.startIndex, 2)
-            
-            result = full.substring(from: index)
-        }
-        
-        return result
-    }
-    
-    func prefix() -> String?
-    {
-        var result : String? = properties[UA.CountryPlate.Properties.kNormal.rawValue] as? String
-        
-        if let full = result
-        {
-            let index : String.Index = full.index(full.startIndex, offsetBy: 2) //advance(full.startIndex, 2)
-            
-            result = full.substring(to: index)
-        }
-        
-        return result
-    }
-    
-    override class func charTypeForCharIndex(_ index : Int) -> PlateTemplatableCharType?
-    {
+
+    override class func charTypeForCharIndex(_ index : Int) -> PlateTemplatableCharType? {
+
         var result : PlateTemplatableCharType?
         
-        switch (index)
-        {
+        switch (index) {
         case 0, 1, 4, 5, 6, 7:
             result = PlateTemplatableCharType.num
         case 2, 3:
@@ -92,14 +58,13 @@ class PlateUAAutoTemporary04 : PlateUAAuto04
     }
 }
 
-class PlateUAAutoTemporary15 : PlateUAAutoTemporary04
-{
-    override func parse(_ input: String) -> Bool
-    {
+final class PlateUAAutoTemporary15 : PlateUAAutoTemporary04 {
+
+    override func parse(_ input: String) -> Bool {
+
         let result = super.parse(input)
         
-        if result
-        {
+        if result {
             properties[UA.CountryPlate.Properties.kPlateType.rawValue] = UA.PlateType.Auto_Temporary_15 as AnyObject?
         }
         

@@ -68,7 +68,7 @@ struct UA
         
         // 3.1
         case Motorbike_04 = "3.1.04"
-        case Motorbike_15 = "3.1.15"
+        // case Motorbike_15 = "3.1.15"
         
         // 3.2
         case Motorbike_Temporary_04 = "3.2.06"
@@ -383,7 +383,7 @@ struct UA
         class func normalizedInput(_ input : String) -> String
         {
             var result = input
-            let limit = charLimit()
+            let limit = Self.charLimit()
             let start = input.count
             
             if start < limit
@@ -395,9 +395,9 @@ struct UA
                         switch charType
                         {
                         case .letter :
-                            result += unknownLetterChar()
+                            result += Self.unknownLetterChar
                         case .num :
-                            result += unknownNumChar()
+                            result += Self.unknownNumChar
                         }
                     }
                     else
@@ -410,25 +410,21 @@ struct UA
             return result
         }
         
-        func parse(_ input: String) -> Bool
-        {
+        func parse(_ input: String) -> Bool {
             properties[Properties.kNormal.rawValue] = input as AnyObject?
             
             return true
         }
         
-        class func regexp() -> String?
-        {
+        class func regexp() -> String? {
             return nil;
         }
         
-        class func charTypeForCharIndex(_ index: Int) -> PlateTemplatableCharType?
-        {
+        class func charTypeForCharIndex(_ index: Int) -> PlateTemplatableCharType? {
             return nil
         }
         
-        class func charLimit() -> Int
-        {
+        class func charLimit() -> Int {
             return 0
         }
     }

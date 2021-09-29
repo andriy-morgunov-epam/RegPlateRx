@@ -71,7 +71,7 @@ struct PlateUASerice// : Plates
         }
 
         // 3.1 (2004)
-        plate = PlateUAMoto04(input)
+        plate = PlateUAMotobike04(input)
         if plate.isValid()
         {
             result.append(plate)

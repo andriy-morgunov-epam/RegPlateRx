@@ -25,8 +25,8 @@ class PlateUAAutoTemporaryDealer04 : PlateUAAutoTemporary04
     
     override class func regexp() -> String?
     {
-        let unknownLetter = "\\" + self.unknownLetterChar()
-        let unknownNumber = "\\" + self.unknownNumChar()
+        let unknownLetter = "\\" + Self.unknownLetterChar
+        let unknownNumber = "\\" + Self.unknownNumChar
         
         return
             "([\(UA.CountryPlate.allSymbols)\(unknownLetter)]" +
@@ -37,34 +37,6 @@ class PlateUAAutoTemporaryDealer04 : PlateUAAutoTemporary04
             "|\(unknownLetter)\(unknownLetter))" +
             "([\\d\(unknownNumber)]{4})"
     }
-    
-//    override var suffix : String?
-//    {
-//        var result : String? = super.value
-//        
-//        if let full = result
-//        {
-//            let index : String.Index = advance(full.startIndex, 2)
-//            
-//            result = full.substring(from: index)
-//        }
-//        
-//        return result
-//    }
-//    
-//    override var prefix : String?
-//    {
-//        var result : String? = super.value
-//        
-//        if let full = result
-//        {
-//            let index : String.Index = advance(full.startIndex, 2)
-//            
-//            result = full.substring(to: index)
-//        }
-//        
-//        return result
-//    }
     
     override class func charTypeForCharIndex(_ index : Int) -> PlateTemplatableCharType?
     {

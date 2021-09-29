@@ -9,8 +9,7 @@
 import Foundation
 
 // Plates
-protocol PlatesProtocol
-{
+protocol PlatesProtocol {
     associatedtype FilterType
     associatedtype PlateValueType
     associatedtype PlateType
@@ -19,8 +18,7 @@ protocol PlatesProtocol
     var provider : PlateProviderType? { get }
 }
 
-class Plates<F, V, T : PlateProtocol> : PlatesProtocol
-{
+class Plates<F, V, T : PlateProtocol> : PlatesProtocol {
     typealias FilterType = F
     typealias PlateType = T
     typealias PlateValueType = V
@@ -28,12 +26,10 @@ class Plates<F, V, T : PlateProtocol> : PlatesProtocol
 
     var provider : PlateProviderType?
     
-    init()
-    {
+    init() {
     }
     
-    init(_ provider : PlateProviderType)
-    {
+    init(_ provider : PlateProviderType) {
         self.provider = provider
     }
 }

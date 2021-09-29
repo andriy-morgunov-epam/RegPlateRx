@@ -8,71 +8,82 @@
 
 import Foundation
 
-class PlateUAMotoTemporary04 : PlateUAAutoTemporary04
-{
-    override func parse(_ input: String) -> Bool
-    {
+class PlateUAMotobikeTemporary04 : PlateUAAutoTemporary04 {
+
+    override func parse(_ input: String) -> Bool {
         let result = super.parse(input)
         
-        if result
-        {
-            properties[UA.CountryPlate.Properties.kPlateType.rawValue] = UA.PlateType.Motorbike_Temporary_04 as AnyObject?
+        if result {
+            self.properties[UA.CountryPlate.Properties.kPlateType.rawValue] = UA.PlateType.Motorbike_Temporary_04 as AnyObject?
+            self.properties[UA.CountryPlate.Properties.kMode.rawValue] = UA.PlateMode.temporary as AnyObject?
+            self.properties[UA.CountryPlate.Properties.kEngineType.rawValue] = UA.PlateEngineType.lessThen50 as AnyObject?
+            self.properties[UA.CountryPlate.Properties.kVehicleType.rawValue] = UA.VehicleType.bike as AnyObject?
         }
-        
-        if let suffix = self.suffix()
-        {
-            properties[UA.CountryPlate.Properties.kSuffix.rawValue] = suffix as AnyObject?
-        }
-        
-        if let body = self.body()
-        {
-            properties[UA.CountryPlate.Properties.kBody.rawValue] = body as AnyObject?
-        }
-        
-        
-        return result
-    }
-    
-    override func suffix() -> String?
-    {
-        var result : String? = properties[UA.CountryPlate.Properties.kNormal.rawValue] as? String
-        
-        if let full = result
-        {
-            let index : String.Index =  full.index(full.endIndex, offsetBy: -2) //advance(full.endIndex, -2)
-            
-            result = full.substring(from: index)
-        }
-        
-        return result
-    }
-    
-    func body() -> String?
-    {
-        var result : String? = properties[UA.CountryPlate.Properties.kNormal.rawValue] as? String
-        
-        if let full = result
-        {
-            let range = (full.index(full.startIndex, offsetBy: 2) ..<  full.index(full.endIndex, offsetBy: -2))//(advance(full.startIndex, 2) ..< advance(full.endIndex, -2))
-            
-            result = full.substring(with: range)
-        }
-        
+
         return result
     }
 }
 
-class PlateUAMotoTemporary15 : PlateUAMotoTemporary04
-{
-    override func parse(_ input: String) -> Bool
-    {
+class PlateUAMotocycleTemporary04 : PlateUAAutoTemporary04 {
+
+    override func parse(_ input: String) -> Bool {
         let result = super.parse(input)
-        
-        if result
-        {
-            properties[UA.CountryPlate.Properties.kPlateType.rawValue] = UA.PlateType.Motorbike_Temporary_15 as AnyObject?
+
+        if result {
+            let parsedInput = type(of :self).normalizedInput(input)
+            let preIndex: String.Index = parsedInput.index(parsedInput.startIndex, offsetBy: 2)
+            let postIndex: String.Index = parsedInput.index(parsedInput.endIndex, offsetBy: -2)
+
+            self.properties[UA.CountryPlate.Properties.kPlateType.rawValue] = UA.PlateType.Motorcycle_Temporary_04 as AnyObject?
+            self.properties[UA.CountryPlate.Properties.kMode.rawValue] = UA.PlateMode.temporary as AnyObject?
+            self.properties[UA.CountryPlate.Properties.kVehicleType.rawValue] = UA.VehicleType.moto as AnyObject?
+            self.properties[UA.CountryPlate.Properties.kPrefix.rawValue] = String(parsedInput[..<preIndex]) as AnyObject?
+            self.properties[UA.CountryPlate.Properties.kBody.rawValue] = String(parsedInput[preIndex..<postIndex]) as AnyObject?
+            self.properties[UA.CountryPlate.Properties.kSuffix.rawValue] = String(parsedInput[postIndex...]) as AnyObject?
         }
-        
+
+        return result
+    }
+
+    override class func regexp() -> String? {
+        let unknownLetter = "\\" + Self.unknownLetterChar
+        let unknownNumber = "\\" + Self.unknownNumChar
+
+        return
+            "([\\d\(unknownNumber)]{2})" +
+            "([\\d\(unknownNumber)]{4})" +
+            "(\(UA.CountryPlate.tails)" +
+            "|[\(UA.CountryPlate.allSymbols)]\(unknownLetter)" +
+            "|\(unknownLetter)[\(UA.CountryPlate.allSymbols)]" +
+            "|\(unknownLetter)\(unknownLetter))"
+    }
+
+    override class func charTypeForCharIndex(_ index : Int) -> PlateTemplatableCharType? {
+
+        var result : PlateTemplatableCharType?
+
+        switch (index) {
+        case 0, 1, 2, 3, 4, 5:
+            result = PlateTemplatableCharType.num
+        case 6, 7:
+            result = PlateTemplatableCharType.letter
+        default:
+            result = nil
+        }
+
+        return result
+    }
+}
+
+final class PlateUAMotocycleTemporary15 : PlateUAMotocycleTemporary04 {
+
+    override func parse(_ input: String) -> Bool {
+        let result = super.parse(input)
+
+        if result {
+            self.properties[UA.CountryPlate.Properties.kPlateType.rawValue] = UA.PlateType.Motorcycle_Temporary_15 as AnyObject?
+        }
+
         return result
     }
 }
