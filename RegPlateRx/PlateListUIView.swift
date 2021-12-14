@@ -52,12 +52,16 @@ struct PlateListUIView: View {
                         case
                             is PlateUAAuto04,
                             is PlateUAAuto15:                         AnyView(PlateUAAutoCellUIView(model: plateModel))
+                                .background(Color.clear)
+                                .listRowBackground(Color.clear)
                         case
                             is PlateUAAutoTemporary04,
                             is PlateUAAutoTemporary15,
                             is PlateUAAutoTemporaryDealer04,
                             is PlateUAAutoTemporaryDealer15:
                                 AnyView(PlateUAAutoTemporaryCellUIView(model: plateModel))
+                                .background(Color.clear)
+                                .listRowBackground(Color.clear)
                         case
                             is PlateUAMotocycle04,
                             is PlateUAMotocycle15,
@@ -66,17 +70,23 @@ struct PlateListUIView: View {
                             is PlateUAMotocycleTemporaryDealer04,
                             is PlateUAMotocycleTemporaryDealer15:
                                 AnyView(PlateUAMotocycleCellUIView(model: plateModel))
+                                .background(Color.clear)
+                                .listRowBackground(Color.clear)
                         case
                             is PlateUAMotobike04,
                             is PlateUAMotobikeTemporary04,
                             is PlateUAMotobikeTemporaryDealer04:
                                 AnyView(PlateUAMotobikeCellUIView(model: plateModel))
+                                .background(Color.clear)
+                                .listRowBackground(Color.clear)
                         default:
                                 AnyView(EmptyView())
+                                .background(Color.clear)
+                                .listRowBackground(Color.clear)
                         }
                     }
                 }
-                .background(.ultraThinMaterial)
+                .listStyle(.plain)
 
                 Spacer()
             }
@@ -109,7 +119,7 @@ struct PlateListUIView: View {
                             }
                         }
              */
-            
+
         }
     }
 }
