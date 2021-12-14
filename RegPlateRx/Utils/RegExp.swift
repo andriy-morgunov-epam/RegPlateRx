@@ -8,31 +8,24 @@
 
 import Foundation
 
-class RegExp
-{
+class RegExp {
     let internalExpression : NSRegularExpression?
     
-    init(_ pattern: String)
-    {
-        do
-        {
+    init(_ pattern: String) {
+        do {
             try self.internalExpression = NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options.caseInsensitive)
         }
-        catch _
-        {
+        catch _ {
             self.internalExpression = nil
         }
     }
     
-    func test(_ input: String) -> Bool
-    {
-        if let exp = self.internalExpression
-        {
+    func test(_ input: String) -> Bool {
+        if let exp = self.internalExpression {
             let matches = exp.matches(in: input, options: [], range:NSMakeRange(0, input.count))
             
             return matches.count > 0
         }
-        
         return false
     }
 }

@@ -8,8 +8,8 @@
 
 import Foundation
 
-class PlateUAAutoTaxi04 : PlateUAAuto04
-{
+class PlateUAAutoTaxi04 : PlateUAAuto04 {
+    
     override func parse(_ input: String) -> Bool {
         let result = super.parse(input)
         
@@ -22,8 +22,8 @@ class PlateUAAutoTaxi04 : PlateUAAuto04
     }
 }
 
-final class PlateUAAutoTaxi15 : PlateUAAutoTaxi04
-{
+final class PlateUAAutoTaxi15 : PlateUAAutoTaxi04 {
+
     override func parse(_ input: String) -> Bool {
         let result = super.parse(input)
         

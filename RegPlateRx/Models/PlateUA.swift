@@ -8,46 +8,35 @@
 
 import Foundation
 
-protocol CountryPlateProtocol
-{
+protocol CountryPlateProtocol {
     static func regexp() -> String?
-    
     static func match(_ input : String ) -> Bool
-    
     func parse(_ input : String ) -> Bool
-    
     func isValid() -> Bool
 }
 
-struct UA
-{
-    enum PlateMode : Int
-    {
+struct UA {
+    enum PlateMode: Int {
         case regular = 0, taxi, temporary
     }
     
-    enum PlateOwnType : Int
-    {
+    enum PlateOwnType: Int {
         case civil = 0, milicia, diplomatic, army, armyVolontier, mountain, tradeDialer
     }
     
-    enum PlateEngineType : Int
-    {
+    enum PlateEngineType: Int {
         case moreThen50 = 0, lessThen50
     }
     
-    enum PlateCountryType : Int
-    {
+    enum PlateCountryType: Int {
         case japan = 0, usa, other
     }
     
-    enum VehicleType : Int
-    {
+    enum VehicleType: Int {
         case unknown = 0, bike, moto, car, track, bus, tracktor, trailer
     }
     
-    enum PlateType : String
-    {
+    enum PlateType: String {
         case Unknown = ""
         
         //1.1
@@ -130,14 +119,12 @@ struct UA
         // 12.2
         case Specific_Temporary_10 = "12.2.10"
         
-        init()
-        {
+        init() {
             self = .Unknown
         }
     }
     
-    enum PlateRegion : String, CustomStringConvertible
-    {
+    enum PlateRegion: String, CustomStringConvertible {
         case Unknown = ""
         
         case AA = "AA"
@@ -202,17 +189,14 @@ struct UA
         case KT = "KT"
         case KX = "KX"
         
-        var description: String
-        {
+        var description: String {
             return self.rawValue
         }
         
-        var region: String?
-        {
+        var region: String? {
             var result : String?
             
-            switch (self)
-            {
+            switch (self) {
             case .AK, .KK :
                 result = NSLocalizedString("Krym", comment: "Krym")
             case .AA, .KA :
@@ -276,12 +260,10 @@ struct UA
             return result
         }
         
-        var year: Int?
-        {
+        var year: Int? {
             var result : Int?
             
-            switch (self)
-            {
+            switch (self) {
             case .AK,.AA,.AB,.AC,.AE,.AH,.AI,.AM,.AO,.AP,.AT,.AX,.BA,.BB,.BC,.BE,.BH,.BI,.BK,.BM,.BO,.BT,.BX,.CA,.CB,.CE,.CH,.II :
                 result = 2004
                 break
@@ -297,10 +279,8 @@ struct UA
         
     }
     
-    class CountryPlate : Plate<String>, PlateTemplatable
-    {
-        enum Properties : String
-        {
+    class CountryPlate: Plate<String>, PlateTemplatable {
+        enum Properties : String {
             case kMode        = "kMode"
             case kOwnType     = "kOwnType"
             case kEngineType  = "kEngineType"
@@ -349,59 +329,48 @@ struct UA
         
         private var _isValid : Bool = false
         
-        func isValid() -> Bool
-        {
+        func isValid() -> Bool {
             return _isValid
         }
         
-        override init(_ value: String)
-        {
+        override init(_ value: String) {
             super.init(value)
             
             let classType = type(of: self)
             
             let normalized = classType.normalizedInput(value)
             
-            if classType.match(normalized) == true
-            {
+            if classType.match(normalized) {
                 _isValid = parse(normalized)
             }
         }
         
-        static func match(_ input: String) -> Bool
-        {
+        static func match(_ input: String) -> Bool {
             var result = false
             
-            if let regexp = regexp()
-            {
+            if let regexp = regexp() {
                 result = RegExp(regexp).test(input);
             }
             
             return result
         }
         
-        class func normalizedInput(_ input : String) -> String
-        {
+        class func normalizedInput(_ input : String) -> String {
             var result = input
             let limit = Self.charLimit()
             let start = input.count
             
-            if start < limit
-            {
-                for index in start..<limit
-                {
-                    if let charType = charTypeForCharIndex(index)
-                    {
-                        switch charType
-                        {
+            if start < limit {
+                for index in start..<limit {
+                    if let charType = charTypeForCharIndex(index) {
+                        switch charType {
                         case .letter :
                             result += Self.unknownLetterChar
                         case .num :
                             result += Self.unknownNumChar
                         }
                     }
-                    else
-                    {
+                    else {
                         break
                     }
                 }
@@ -417,7 +386,7 @@ struct UA
         }
         
         class func regexp() -> String? {
-            return nil;
+            return nil
         }
         
         class func charTypeForCharIndex(_ index: Int) -> PlateTemplatableCharType? {
@@ -429,21 +398,16 @@ struct UA
         }
     }
 
-    class CountryProvider : PlateProvider<String, String, CountryPlate>
-    {
-        override func getWithFilter(filter : String) -> [UA.CountryPlate]
-        {
+    class CountryProvider: PlateProvider<String, String, CountryPlate> {
+        override func plates(with filter : String) -> [UA.CountryPlate] {
             return PlateUASerice.plates(filter)
         }
     }
     
-    class CountryPlates : Plates<String, String, CountryPlate>
-    {
-        override init()
-        {
+    class CountryPlates: Plates<String, String, CountryPlate> {
+        override init() {
             super.init()
-            
-            self.provider = CountryProvider()
+            self.provider = UA.CountryProvider()
         }
     }
 
@@ -515,14 +479,11 @@ struct UA
     
 }
 
-extension UA.CountryPlate : CountryPlateProtocol
-{
-    private func getRegion(input : String) -> UA.PlateRegion?
-    {
+extension UA.CountryPlate : CountryPlateProtocol {
+    private func getRegion(input : String) -> UA.PlateRegion? {
         var result : UA.PlateRegion? = nil;
         
-        if (input.count > 1)
-        {
+        if (input.count > 1) {
             let index : String.Index =  input.index(input.startIndex, offsetBy: 2)
             
             let regionStr : String = input.substring(to: index)
@@ -533,30 +494,21 @@ extension UA.CountryPlate : CountryPlateProtocol
         return result
     }
     
-    private func getType() -> UA.PlateType?
-    {
+    private func getType() -> UA.PlateType? {
         return nil
     }
     
-    private func getYear(region : UA.PlateRegion) -> String?
-    {
+    private func getYear(region : UA.PlateRegion) -> String? {
         var result : String?
         
-        if let year = region.year
-        {
+        if let year = region.year {
             result = "\(year)"
         }
         
         return result
     }
     
-    private func getArea(region : UA.PlateRegion) -> String?
-    {
+    private func getArea(region : UA.PlateRegion) -> String? {
         return region.region
     }
 }
-
-
-
-
-

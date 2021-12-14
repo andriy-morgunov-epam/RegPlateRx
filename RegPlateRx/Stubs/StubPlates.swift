@@ -8,33 +8,25 @@
 
 import Foundation
 
-protocol PlateUAProtocol : PlateProtocol
-{
+protocol PlateUAProtocol : PlateProtocol {
     associatedtype PlateType = String
 }
 
-
-protocol PlatesUAProtocol : PlatesProtocol
-{
+protocol PlatesUAProtocol : PlatesProtocol {
 }
 
-class StubPlateUAProvider : PlateProvider<String, String, UA.CountryPlate>
-{
-    override func getWithFilter(filter : String) -> [UA.CountryPlate]
-    {
+class StubPlateUAProvider : PlateProvider<String, String, UA.CountryPlate> {
+    override func plates(with filter : String) -> [UA.CountryPlate] {
         return [UA.CountryPlate("AA0001AB"), UA.CountryPlate("AA0002AB"), UA.CountryPlate("AA0003AB")]
     }
 }
 
-protocol StubPlatesUAProtocol
-{
+protocol StubPlatesUAProtocol {
     func plug_stub()
 }
 
-extension UA.CountryPlates : StubPlatesUAProtocol
-{
-    internal func plug_stub()
-    {
+extension UA.CountryPlates : StubPlatesUAProtocol {
+    internal func plug_stub() {
         self.provider = StubPlateUAProvider()
     }
 }

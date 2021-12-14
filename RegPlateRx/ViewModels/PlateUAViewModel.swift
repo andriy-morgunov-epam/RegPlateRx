@@ -7,24 +7,20 @@
 //
 
 import Foundation
-import RxSwift
-//import RxCocoa
 
-class PlateUAViewModel
-{
-    var prefix : BehaviorSubject<String>?
-    var body : BehaviorSubject<String>?
-    var postfix : BehaviorSubject<String>?
+class PlateUAViewModel: Identifiable {
+    var id: String = UUID().uuidString
+//    var prefix : BehaviorSubject<String>?
+//    var body : BehaviorSubject<String>?
+//    var postfix : BehaviorSubject<String>?
     
-    let model : UA.CountryPlate
+    let model: UA.CountryPlate
     
-    init (_ model : UA.CountryPlate)
-    {
+    init (_ model: UA.CountryPlate) {
         self.model = model
         
-        if let norm = model.properties[UA.CountryPlate.Properties.kNormal.rawValue] as? String
-        {
-            self.body = BehaviorSubject(value: norm)
+        if let norm = model.properties[UA.CountryPlate.Properties.kNormal.rawValue] as? String {
+//            self.body = BehaviorSubject(value: norm)
         }
     }
 }

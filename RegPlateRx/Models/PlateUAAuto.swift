@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PlateUAAuto04 : UA.CountryPlate {
+class PlateUAAuto04: UA.CountryPlate {
 
     private static let kMaxLength = 8
     

@@ -7,52 +7,37 @@
 //
 
 import Foundation
-import RxSwift
-//import ObservableArray_RxSwift
+import Combine
+import SwiftUI
 
-class PlatesUAViewModel
-{
-    var disposeBag = DisposeBag()
+class PlatesUAViewModel: ObservableObject {
+    private var subscriptions = Set<AnyCancellable>()
     
-    let model : UA.CountryPlates
-    
-    var search : BehaviorSubject<String?> = BehaviorSubject(value: "")
-    var items : ObservableArray<PlateUAViewModel> = ObservableArray<PlateUAViewModel>()
-    
-    init (_ model : UA.CountryPlates)
-    {
+    private let model: UA.CountryPlates
+
+    @Published var search: String = ""
+    @Published var items: [PlateUAViewModel] = []
+
+    init (_ model: UA.CountryPlates = UA.CountryPlates()) {
         self.model = model
         
         // testing ONLY
         // model.plug_stub()
-        
-        search.asObservable().subscribe(onNext:{ [weak self] (text) in
-            
-            self?.refresh(text ?? "")
-            
-        }).disposed(by: disposeBag)
+
+        self.$search.sink { [weak self] text in
+            self?.refresh(text)
+        }
+        .store(in: &subscriptions)
     }
     
-    func refresh(_ filter : String) -> Void
-    {
-        if let items = self.model.provider?.getWithFilter(filter: filter)
-        {
-//            var vms : [PlateUAViewModel] = []
-            
-            self.items.removeAll()
-            
-            for item in items
-            {
-                self.items.append(createViewModelWithModel(model: item))
-//                vms.append(createViewModelWithModel(model: item))
-//                    = Observable.just(vms)
-            }
-    //            self.items.append(vms)
+    func refresh(_ filter: String) -> Void {
+        if let plates = self.model.provider?.plates(with: filter) {
+
+            self.items = plates.map { self.viewModel(for: $0) }
         }
     }
     
-    private func createViewModelWithModel(model : UA.CountryPlate) -> PlateUAViewModel
-    {
+    private func viewModel(for model: UA.CountryPlate) -> PlateUAViewModel {
         let result = PlateUAViewModel(model)
         
         return result

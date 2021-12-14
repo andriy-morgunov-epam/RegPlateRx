@@ -12,7 +12,7 @@ import Foundation
 
 final class HostingViewController: UIViewController
 {
-    private let contentView = UIHostingController(rootView: PlateListUIView(models: []))
+    private let contentView = UIHostingController(rootView: PlateListUIView())
 
     override func viewDidLoad() {
         super.viewDidLoad()

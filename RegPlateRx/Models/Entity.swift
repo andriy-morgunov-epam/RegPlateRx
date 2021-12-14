@@ -9,21 +9,18 @@
 import Foundation
 
 // Entity
-
-protocol EntityCRUDProtocol : class
-{
+protocol EntityCRUDProtocol: AnyObject {
     associatedtype EntityType
     
     static func create() -> EntityType
 }
 
-protocol EntityProvider
-{
+protocol EntityProvider {
     associatedtype EntityType
     associatedtype EntityFilterType
     associatedtype EntityCRUDType
     
-    func getWithFilter(filter : EntityFilterType) -> [EntityType]
+    func plates(with filter : EntityFilterType) -> [EntityType]
     
     var crudInterface : EntityCRUDType { get }
 }

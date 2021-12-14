@@ -67,7 +67,7 @@ class PlateTests: XCTestCase {
         
         let provider = PlateProvider<String, String, Plate<String>>()
         
-        let list = provider.getWithFilter(filter: "")
+        let list = provider.plates(with: "")
         
         XCTAssertEqual(list.count, 0, "Wrong provider result")
     }

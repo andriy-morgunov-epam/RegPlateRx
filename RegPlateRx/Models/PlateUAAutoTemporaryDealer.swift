@@ -8,10 +8,9 @@
 
 import Foundation
 
-class PlateUAAutoTemporaryDealer04 : PlateUAAutoTemporary04
-{
-    override func parse(_ input: String) -> Bool
-    {
+class PlateUAAutoTemporaryDealer04 : PlateUAAutoTemporary04 {
+    
+    override func parse(_ input: String) -> Bool {
         let result = super.parse(input)
         
         if result
@@ -23,8 +22,7 @@ class PlateUAAutoTemporaryDealer04 : PlateUAAutoTemporary04
         return result
     }
     
-    override class func regexp() -> String?
-    {
+    override class func regexp() -> String? {
         let unknownLetter = "\\" + Self.unknownLetterChar
         let unknownNumber = "\\" + Self.unknownNumChar
         
@@ -38,12 +36,10 @@ class PlateUAAutoTemporaryDealer04 : PlateUAAutoTemporary04
             "([\\d\(unknownNumber)]{4})"
     }
     
-    override class func charTypeForCharIndex(_ index : Int) -> PlateTemplatableCharType?
-    {
+    override class func charTypeForCharIndex(_ index : Int) -> PlateTemplatableCharType? {
         var result : PlateTemplatableCharType?
         
-        switch (index)
-        {
+        switch (index) {
         case 1, 4, 5, 6, 7:
             result = PlateTemplatableCharType.num
         case 0, 2, 3:
@@ -56,14 +52,11 @@ class PlateUAAutoTemporaryDealer04 : PlateUAAutoTemporary04
     }
 }
 
-class PlateUAAutoTemporaryDealer15 : PlateUAAutoTemporaryDealer04
-{
-    override func parse(_ input: String) -> Bool
-    {
+class PlateUAAutoTemporaryDealer15 : PlateUAAutoTemporaryDealer04 {
+    override func parse(_ input: String) -> Bool {
         let result = super.parse(input)
         
-        if result
-        {
+        if result {
             properties[UA.CountryPlate.Properties.kPlateType.rawValue] = UA.PlateType.Auto_Trade_Temporary_15 as AnyObject?
         }
         

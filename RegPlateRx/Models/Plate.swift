@@ -9,7 +9,6 @@
 import Foundation
 
 // Plate
-
 protocol PlateProtocol {
 
     associatedtype PlateType
@@ -55,7 +54,8 @@ class PlateFactory<V, T : PlateProtocol> : EntityCRUDProtocol {
 }
 
 class PlateProvider<V, F, T : PlateProtocol> : EntityProvider {
-    func getWithFilter(filter : F) -> [T] {
+    
+    func plates(with filter : F) -> [T] {
         return []
     }
     
